@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Celine Foucart | Portfolio</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar__container">
+            <a href="index.html" class="navbar__brand">Céline Foucart</a>
+            <ul class="navbar__navigation">
+                <li><a href="index.html#portfolio" class="navbar__item">Portfolio</a></li>
+                <li><a href="index.html#contact" class="btn-outline-important">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="header">
+        <h1 class="header__title">Céline Foucart</h1>
+        <p>Développeuse web</p>
+    </header>
+    <main>
+        <section class="section">
+            <div class="container">
+                <header class="section__header">
+                    <h2 class="section__title">
+                        <span class="section__title--top">Découvrir</span>
+                        <span class="section__title--bottom">Mon portfolio</span>
+                    </h2>
+                </header>
+                <div class="portfolio" id="portfolio">
+                    <article class="portfolio__card">
+                        <header class="portfolio__card__header">
+                            <img src="img/Blog.png" alt="illustration du projet" class="portfolio__card__img">
+                            <h3 class="portfolio__card__title">Lorem Ipsum</h3>
+                        </header>
+                        <p class="portfolio__card__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis molestias amet perferendis magni rem saepe sed!</p>
+                        <footer class="portfolio__card__footer">
+                            <a href="project.html" class="btn-outline-default">En savoir plus</a>
+                        </footer>
+                    </article>
+                    <article class="portfolio__card">
+                        <header class="portfolio__card__header">
+                            <img src="img/Restaurant.png" alt="illustration du projet" class="portfolio__card__img">
+                            <h3 class="portfolio__card__title">Lorem Ipsum</h3>
+                        </header>
+                        <p class="portfolio__card__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis molestias amet perferendis magni rem saepe sed!</p>
+                        <footer class="portfolio__card__footer">
+                            <a href="#" class="btn-outline-default">En savoir plus</a>
+                        </footer>
+                    </article>
+                    <article class="portfolio__card">
+                        <header class="portfolio__card__header">
+                            <img src="img/Social.png" alt="illustration du projet" class="portfolio__card__img">
+                            <h3 class="portfolio__card__title">Lorem Ipsum</h3>
+                        </header>
+                        <p class="portfolio__card__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis molestias amet perferendis magni rem saepe sed!</p>
+                        <footer class="portfolio__card__footer">
+                            <a href="#" class="btn-outline-default">En savoir plus</a>
+                        </footer>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="section contact" id="contact">            
+            <div class="container">
+                <header class="section__header">
+                    <h2 class="section__title">
+                        <span class="section__title--top">Contact</span>
+                        <span class="section__title--bottom">Me contacter</span>
+                    </h2>
+                </header>
+    
+                <form action="" method="post" class="form">
+                    <div class="form__flex">
+                        <div class="form__group">
+                            <label for="name">Votre nom</label>
+                            <input type="text" name="name" id="name" class="form__field">
+                        </div>
+                        <div class="form__group">
+                            <label for="email">Votre email</label>
+                            <input type="text" name="email" id="email" class="form__field">
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <label for="subject">Objet du message</label>
+                        <input type="text" name="subject" id="subject" class="form__field">
+                    </div>
+                    <div class="form__group">
+                        <label for="content">Votre message</label>
+                        <textarea name="content" id="content" class="form__field"></textarea>
+                    </div>
+                    <div class="form__action">
+                        <input type="submit" value="Envoyer" class="btn-important">
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>Design par <strong>Céline Foucart</strong></p>
+    </footer>
+</body>
+</html>
