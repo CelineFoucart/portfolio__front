@@ -11,7 +11,7 @@ window.onload = () => {
         // send to server
     } else {
         const format = new FormatErrors(errors);
-        format.appendMessage();
+        format.appendMessage(document);
     }
 }
 
