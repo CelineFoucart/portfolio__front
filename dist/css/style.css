@@ -40,7 +40,7 @@ a {
     transition: all .5s ease-in-out;
 }
 
-.btn-important, .btn-outline-important:hover {
+.btn-important, .btn-outline-important:hover, .btn-outline-important.active {
     color: var(--bg-color);
     background-color: var(--important-color);
     border: 1px solid var(--important-color);
@@ -70,6 +70,11 @@ a {
 .navbar {
     padding: 20px;
     box-shadow: 0 4px 10px rgb(3, 3, 3, .25);
+    position: sticky;
+    top: 0;
+    right: 0;
+    left:  0;
+    background-color: var(--bg-color);
 }
 
 .navbar a.navbar__item, .navbar__brand {
@@ -134,7 +139,7 @@ a {
     box-shadow: 0 2px 3px rgb(3, 3, 3, .5);
 }
 
-.navbar__item:hover::after {
+.navbar__item:hover::after, .navbar__item.active::after {
     width: 100%;
 }
 
@@ -333,6 +338,11 @@ textarea.form__field {
     justify-content: end;
 }
 
+#message {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
 /* -----------------
     # profile project
 --------------------*/
@@ -376,6 +386,10 @@ textarea.form__field {
     margin-top: 35px;
     padding: 25px 0 20px;
     text-align: center;
+}
+
+.footer a {
+    color: inherit;
 }
 
 /* -----------------

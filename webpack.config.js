@@ -4,7 +4,7 @@ module.exports = {
     mode: 'development',
     entry: "./src/script.js",
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist/js'),
         filename: "bundle.js"
     },
     devtool: "source-map",

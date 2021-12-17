@@ -1,4 +1,5 @@
 const Selector = require('../src/helpers/Selector.js');
+const DataHelper = require('./helpers/DataHelper.js');
 const page = require('../__mocks__/page.js');
 const document = page.window.document;
 
@@ -31,17 +32,10 @@ describe('Selector with errors', () => {
  * @jest-environment jsdom
  */
 describe("Test Selector with data", () => {
-    const values = {
-        username: "John Doe",
-        email: "john@email.fr",
-        subject: "lorem ispum",
-        content: "lorem ipsum sit amet dolorem nihil sicut et non"
-    };
+    const values = DataHelper.validValues();
 
     test("test with valid data", () => {
-        for (const property in values) {
-            document.querySelector('#' + property).value = values[property];
-        }
+        DataHelper.insertValues(values, document);
 
         const selector = new Selector('username', 'email', 'subject', 'content');
         selector.selectValue(document);

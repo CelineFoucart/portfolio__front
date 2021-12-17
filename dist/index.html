@@ -14,10 +14,10 @@
 <body>
     <nav class="navbar">
         <div class="container navbar__container">
-            <a href="index.html" class="navbar__brand">Céline Foucart</a>
+            <a href="/" class="navbar__brand">Céline Foucart</a>
             <ul class="navbar__navigation">
-                <li><a href="index.html#portfolio" class="navbar__item">Portfolio</a></li>
-                <li><a href="index.html#contact" class="btn-outline-important">Contact</a></li>
+                <li><a href="#portfolio" class="navbar__item">Portfolio</a></li>
+                <li><a href="#contact" class="btn-outline-important">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -34,7 +34,7 @@
                         <span class="section__title--bottom">Mon portfolio</span>
                     </h2>
                 </header>
-                <div class="portfolio" id="portfolio">
+                <div class="portfolio" id="portfolio" data-spy="scoll">
                     <article class="portfolio__card">
                         <header class="portfolio__card__header">
                             <img src="img/Blog.png" alt="illustration du projet" class="portfolio__card__img">
@@ -68,7 +68,7 @@
                 </div>
             </div>
         </section>
-        <section class="section contact" id="contact">            
+        <section class="section contact" id="contact" data-spy="scoll">            
             <div class="container">
                 <header class="section__header">
                     <h2 class="section__title">
@@ -78,10 +78,11 @@
                 </header>
     
                 <form action="" method="post" class="form">
+                    <div id="message">Remplissez le formulaire suivant pour m'envoyer un message.</div>
                     <div class="form__flex">
                         <div class="form__group">
                             <label for="username">Votre nom</label>
-                            <input type="text" name="name" id="name" class="form__field">
+                            <input type="text" name="username" id="username" class="form__field">
                         </div>
                         <div class="form__group">
                             <label for="email">Votre email</label>
@@ -97,14 +98,15 @@
                         <textarea name="content" id="content" class="form__field"></textarea>
                     </div>
                     <div class="form__action">
-                        <input type="submit" value="Envoyer" class="btn-important">
+                        <input type="submit" id="submit" value="Envoyer" class="btn-important">
                     </div>
                 </form>
             </div>
         </section>
     </main>
     <footer class="footer">
-        <p>Design par <strong>Céline Foucart</strong></p>
+        <p>Design par <strong><a href="https://github.com/CelineFoucart">Céline Foucart</a></strong></p>
     </footer>
+    <script src="./js/bundle.js"></script>
 </body>
 </html>

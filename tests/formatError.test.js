@@ -27,4 +27,24 @@ describe("Test FormatError", () => {
         expect(elementError).not.toBeNull();
         expect(elementError.innerHTML).toEqual(errors[0][1]);
     });
+
+    test("Without data", () => {
+        const errors = [];
+        const format = new FormatErrors(errors);
+        format.appendMessage(document);
+        let elementError = document.querySelector('.alert-danger');
+        expect(elementError).toBeNull();
+    });
+
+    test("With object", () => {
+        const errors = {
+            username: "Ce champ est trop long"
+        };
+        const format = new FormatErrors(errors);
+        format.appendMessage(document);
+
+        let elementError = document.querySelector('#username + .alert-danger');
+        expect(elementError).not.toBeNull();
+        expect(elementError.innerHTML).toEqual(errors.username);
+    });
 });
