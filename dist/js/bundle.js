@@ -1,6 +1,98 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/ScrollObserver.js":
+/*!*******************************!*\
+  !*** ./src/ScrollObserver.js ***!
+  \*******************************/
+/***/ ((module) => {
+
+class ScrollObserver {
+
+	constructor(selectorValue = '[data-spy="scoll"]', activeClass = 'active', ratio = .6) {
+		this.ratio = ratio;
+		this.entries = document.querySelectorAll(selectorValue);
+        this.activeClass = activeClass;
+        this.calculOptions();
+        this.observer = null;
+	}
+
+	calculOptions() {
+		const y = Math.round(window.innerHeight * this.ratio);
+        this.options = {
+        	rootMargin: `-${window.innerHeight - y - 1}px 0px -${y}px 0px`
+        }
+	}
+
+	/**
+	 * @param {HTMLElement} element 
+	 */
+	activate(element) {
+	    const id = element.id;
+	    const anchor = document.querySelector(`a[href="#${id}"]`);
+	    if (anchor === null) {
+	        return null;
+	    }
+	    anchor.parentElement.parentElement.querySelectorAll('.'+ this.activeClass).forEach(node => {
+	        node.classList.remove(this.activeClass);
+	    });
+	    anchor.classList.add(this.activeClass);
+	}
+	
+	observe() {
+		if(this.observer !== null) {
+	        this.entries.forEach(entry => observer.unobserve(entry));
+	    }
+	    this.calculOptions();
+	    const entries = this.entries;
+        this.observer = new IntersectionObserver((entries) => {
+        	entries.forEach((entry) => {
+	            if(entry.intersectionRatio > 0) {
+	                this.activate(entry.target);
+	        	}
+			});
+        }, this.options);
+        this.entries.forEach(entry => { 
+            this.observer.observe(entry);
+        });
+        this.entries.forEach(entry => this.observer.observe(entry));
+    }
+
+    /**
+	 * @param   {function} callback
+	 * @param   {number}   delay 
+	 * @returns {function}
+	 */
+    debounce(callback, delay) {
+    	let timer;
+	    return function () {
+	        let args = arguments;
+	        let context = this;
+	        clearTimeout(timer);
+	        timer = setTimeout(function () {
+	            callback.apply(context, args);
+	        }, delay)
+	    }
+    }
+
+    run() {
+    	if(this.entries.length > 0) {
+		    this.observe();
+		    let WindowH = window.innerHeight;
+		    window.addEventListener('resize', this.debounce(() => {
+		        if (window.innerHeight !== WindowH) {
+		            this.observe();
+		            WindowH = window.innerHeight;
+		        }
+		    }, 500));
+		}
+    }
+}
+
+module.exports = ScrollObserver;
+
+/***/ }),
+
 /***/ "./src/helpers/Database.js":
 /*!*********************************!*\
   !*** ./src/helpers/Database.js ***!
@@ -297,36 +389,10 @@ var __webpack_exports__ = {};
   !*** ./src/script.js ***!
   \***********************/
 const submit = __webpack_require__(/*! ../src/submit.js */ "./src/submit.js");
+const ScrollObserver = __webpack_require__(/*! ../src/ScrollObserver.js */ "./src/ScrollObserver.js");
 window.onload = () => {
-
-    // scrollspy
-    const options = {
-        rootMargin: "0px",
-        threshold: 0.5
-    };
-    const entries = document.querySelectorAll('[data-spy="scoll"]');
-    const activate = (element) => {
-        const id = element.id;
-        const anchor = document.querySelector(`a[href="#${id}"]`);
-        if (anchor === null) {
-            return null;
-        }
-        anchor.parentElement.parentElement.querySelectorAll('.active').forEach(node => {
-            node.classList.remove('active');
-        });
-        anchor.classList.add('active');
-    }
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if(entry.intersectionRatio > 0) {
-                activate(entry.target);
-            }
-        });
-    }, options);
-    entries.forEach(entry => { 
-        observer.observe(entry);
-    });
-
+    const scrollObserver = new ScrollObserver();
+    scrollObserver.run();
 
     const submitButton = document.querySelector('#submit');
     submitButton.addEventListener('click', (event) => {
